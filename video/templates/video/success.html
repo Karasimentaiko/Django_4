@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends "video/base.html" %}
+{% block content %}
+<h1>success page</h1>
+<script src="https://cdn.jsdelivr.net/npm/cloudinary-core@2.10.3/cloudinary-core-shrinkwrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cloudinary-video-player@2.13.0/cld-video-player.min.js"></script>
+<img src="https://res.cloudinary.com/<your_cloud_name>/image/upload/<image_public_id>.jpg" alt="image">
+<video src="https://res.cloudinary.com/<your_cloud_name>/video/upload/<video_public_id>.mp4" controls></video>
+<a href="/video">front_page video</a>
+{% endblock %}
