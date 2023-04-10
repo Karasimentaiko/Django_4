@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "blog/base.html" %}
+{% block content %}
+
+<div class="post block">
+    <h2>post_create page</h2>
+</div>
+<hr />
+<form action="" method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <div class="field">
+      <div class="control">
+        <button class="button is-denger">送信</button>
+      </div>
+    </div>
+</form>
+<hr />
+
+
+<a href="/frontpage">frontpage</a>
+{% endblock %}

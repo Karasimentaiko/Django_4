@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "blog/base.html" %}
+{% block content %}
+
+<div class="post block">
+    <h2> Change_Delete page</h2>
+</div>
+<hr>
+
+<form action="" method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <div class="field">
+      <div class="control">
+        <button class="button is-denger" name="Change">変更する</button>
+      </div>
+    </div>
+</form>
+<br />
+<form action="" method="post">
+    {%csrf_token%}
+    <button class="button is-denger" name="Delete">削除する</button>
+</form>
+<hr>
+<a href="{% url 'post_detail' post.pk%}">詳細ページ</a>
+
+{% endblock %}
