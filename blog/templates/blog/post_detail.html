@@ -6,8 +6,10 @@
   <small>Posted at {{post.posted_date}}</small>
   <p>{{post.intro}}</p>
   <p>{{post.body}}</p>
-  <hr>
+  <br />
+  <a href="{% url 'post_Change_Delete' post.pk %}">投稿変更/削除ページ</a>
 </div>
+
 <h2 class="subtitle">コメント</h2>
 {%for comment in post.comments.all%}
 <article class="media">
@@ -20,10 +22,16 @@
         </strong>
         <br />
         {{comment.body}}
+        <br />
+        <form action="" method="post">
+          {%csrf_token%}
+          <button class="button is-denger" name="comment_delete" value="{{comment.id}}" >コメント削除</button>
+        </form>
       </p>
     </div>
   </div>
 </article>
+
 {%empty%}
 <div class="notification">
   <p>コメントはまだありません</p>
@@ -32,7 +40,7 @@
 {%endfor%}
 
 <h2 class="subtitle">コメントを追加</h2>
-<form action="." method="post">
+<form action="" method="post">
   {%csrf_token%}
   {{form.as_p}}
   <div class="field">
@@ -43,5 +51,5 @@
 </form>
 
 
-<a href="/"><strong>frontpage</strong></a>
+<a href="/frontpage"><strong>frontpage</strong></a>
 {%endblock%}
